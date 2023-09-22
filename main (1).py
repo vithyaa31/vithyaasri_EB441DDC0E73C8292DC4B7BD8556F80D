@@ -1,30 +1,26 @@
-#write the program to create a instance of BankAccount class and test the deposit and withdrawal functionality.
-class BankAccount:
-  def __init__(self,account_number,account_holder_name,initial_balance=0.0):
-    self.__account_number = account_number
-    self.__account_holder_name = account_holder_name
-    self.__account_balance = initial_balance
-  def deposit(self,amount):
-    if amount >0:
-      self.__account_balance += amount
-      print("New balance:₹.{}".format(amount,self.__account_balance))
-    else:
-      print("Invalid deposit amount. Please deposit a positive amount.")
-  def withdraw(self,amount):
-    if amount >0 and amount <= self.__account_balance:
-      self.__account_balance-=amount
-      print("Withdrawl ₹.{}. New balance: ₹.{}".format(amount,self.__account_balance))
-    else:
-      print("Invalid withdrawal amount or insufficient balance.")
-  def display_balance(self):
-    print("Account balance for {} (Account#{}):₹{}".format(self.__account_holder_name, self.__account_number, self.__account_balance))
+def sort_students(student_list):
+    sorted_students = sorted(student_list, key=lambda x: x.cgpa, reverse=True)
+    return sorted_students
 
-#create an instance of the BankAccount class:
-account= BankAccount(account_number="1234567890", account_holder_name="vithyaasri", initial_balance=7000.00)
+class Student:
+    def __init__(self, name, roll_number, cgpa):
+        self.name = name
+        self.roll_number = roll_number
+        self.cgpa = cgpa
 
-#test deposits and withdrawal functionality:
-account.display_balance()
-account.deposit(500.0)
-account.withdraw(200.0)
-account.withdraw(20000.0)
-#account.display_balance()
+student1 = Student("Alice", "A001", 3.8)
+student2 = Student("Bob", "B002", 3.9)
+student3 = Student("Charlie", "C003", 3.7)
+
+students = [student1, student2, student3]
+
+sorted_students = sort_students(students)
+
+for student in sorted_students:
+    print(f"Name: {student.name}, Roll Number: {student.roll_number}, CGPA: {student.cgpa}")
+
+
+
+
+
+
